@@ -13,8 +13,7 @@
         </a>
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
           <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Информация</a>
-          <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Регистрация</a>
-          <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Вход</a>
+
         </nav>
       </div>
       <div class="container">
@@ -30,9 +29,25 @@
             </div>
             <div class="col-4 offset-1">
                 <h1>Информация</h1>
+
+                {% for info in all_info %}
                 <div class="alert alert-info">
-                    Погода в Бресте
+                    <div class="row">
+                        <div class="col-9">
+                            <b>Город:</b> {{ info.city }}
+                            <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="" class="img-thunbnail"><br>
+                            <b>Температура: </b>{{ info.temp }}<sup>o</sup>С<br>
+                            <b>Ощущается как: </b>{{ info.feels_like }}<sup>o</sup>С<br>
+                            <b>Влажность: </b>{{ info.humidity }} % <br>
+                            <b>Облачность: </b>{{ info.all }} % <br>
+                            <b>Сила ветра: </b>{{ info.speed }} метр/сек <br>
+
+                            <b>Давление: </b>{{ info.pressure }} гПа
+                        </div>
+                    </div>
+
                 </div>
+                {% endfor %}
             </div>
         </div>
       </div>
